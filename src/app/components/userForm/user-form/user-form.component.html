@@ -1,0 +1,20 @@
+<div class=" flex justify-center   items-center ">
+
+
+    <form [formGroup]="userForm" (submit)="createUser(this.userForm.value.name)"
+    class="flex justify-center flex-col text-center items-center">
+    <mat-form-field>
+      <mat-label>Users</mat-label>
+      <input matInput placeholder="Insert Your Name" formControlName="name">
+
+    </mat-form-field>
+
+<div  *ngIf="!name?.valid && name?.touched">Name is required</div>
+<div *ngIf="!name?.valid && name?.touched">Name should have at least 3 characters</div>
+
+    <button mat-raised-button [disabled]="!name?.valid" class="w-[200px] m-2"  type="submit">Submit Name </button>
+
+     <button mat-raised-button class="w-[200px] m-2" (click)="createUser('Anonymous')">Enter Wiht Anonymous</button>
+    </form>
+
+</div>

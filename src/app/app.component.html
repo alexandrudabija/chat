@@ -1,0 +1,24 @@
+
+<app-user-form *ngIf="!show"
+(userInChat)="hideFormUser($event)"
+class=" fixed inset-0 z-10 bg-violet-400 flex justify-center items-center  "></app-user-form>
+
+
+
+
+<div class="flex justify-center p-2" >
+  <h3 class="my-2" >Hello {{userName}} !</h3>
+  <button class="w-[200px] mx-2" mat-raised-button (click)="changeUser()">ChangeUser</button>
+</div>
+
+<div  class="w-full flex justify-center">
+
+
+
+    <div class="flex  flex-col items-center ">
+    <app-contacts class=" p-2 w-full" (sendChatId)="sendChatId($event)" (usersID)="receiveUsersId($event)"></app-contacts>
+    <app-chat [chatId]="chatId" [usersId]="usersId" class="p-2 w-full"></app-chat>
+
+    </div>
+
+</div>

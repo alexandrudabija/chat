@@ -1,0 +1,27 @@
+<div class="container bg-violet-200 h-[200px] px-2 w-full   rounded-md shadow-md ">
+<!-- [style.width.px]=158 for dinamic !-->
+<div class="w-full flex justify-center">
+    <mat-form-field  class="w-10/12 m-2" >
+      <mat-label  class="w-full">{{selectedUser}}</mat-label>
+  <input
+
+  matInput class="w-full"
+  placeholder="Search for users"
+  [formControl]="searchControl"
+  [matAutocomplete]="users"
+(click)="handleClick()"
+  >
+    </mat-form-field>
+
+
+<mat-autocomplete  #users="matAutocomplete">
+<mat-option *ngFor="let user of users$ |async" (onSelectionChange)="createChat(user)">
+  {{user?.name}}
+
+</mat-option>
+</mat-autocomplete>
+
+</div>
+
+
+</div>
